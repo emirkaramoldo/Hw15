@@ -54,7 +54,9 @@
             <com.google.android.material.button.MaterialButton
                 style="@style/Gray.Button"
                 android:text="%"
+                android:id="@+id/btn_percentage"
                 android:layout_marginEnd="18dp"
+                android:onClick="onOperationClick"
                 />
             <com.google.android.material.button.MaterialButton
                 style="@style/Orange.Button"

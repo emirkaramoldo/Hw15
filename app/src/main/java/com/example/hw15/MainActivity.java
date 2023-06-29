@@ -6,6 +6,9 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -14,6 +17,8 @@ public class MainActivity extends AppCompatActivity {
     private Integer first, second;
 
     private Boolean isOperationClick;
+
+    private String action;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -113,14 +118,47 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onOperationClick(View view) {
-        if(view.getId() == R.id.btn_plus || view.getId() == R.id.btn_minus
-                || view.getId() == R.id.btn_multiply || view.getId() == R.id.btn_divide){
+        if(view.getId() == R.id.btn_plus){
             first = Integer.valueOf(textView.getText().toString());
+            action = "plus";
         }
-        else if(view.getId() == R.id.btn_equal){
+        else if(view.getId() == R.id.btn_minus){
+            first = Integer.valueOf(textView.getText().toString());
+            action = "minus";
+        }
+        else if(view.getId() == R.id.btn_multiply){
+            first = Integer.valueOf(textView.getText().toString());
+            action = "multiply";
+        }
+        else if(view.getId() == R.id.btn_divide){
+            first = Integer.valueOf(textView.getText().toString());
+            action = "divide";
+        }
+        else if(view.getId() == R.id.btn_equal && Objects.equals(action, "plus")){
             second = Integer.valueOf(textView.getText().toString());
             Integer sum = first + second;
             textView.setText(sum.toString());
+        }
+        else if(view.getId() == R.id.btn_equal && Objects.equals(action, "minus")){
+            second = Integer.valueOf(textView.getText().toString());
+            Integer sum = first - second;
+            textView.setText(sum.toString());
+        }
+        else if(view.getId() == R.id.btn_equal && Objects.equals(action, "multiply")){
+            second = Integer.valueOf(textView.getText().toString());
+            Integer sum = first * second;
+            textView.setText(sum.toString());
+        }
+        else if(view.getId() == R.id.btn_equal && Objects.equals(action, "divide")){
+            second = Integer.valueOf(textView.getText().toString());
+            try {
+                Integer sum = first / second;
+                textView.setText(sum.toString());
+            }
+            catch (ArithmeticException e){
+                Toast.makeText(getApplicationContext(),"Нельзя делить на 0",Toast.LENGTH_SHORT).show();
+            }
+
         }
         isOperationClick = true;
     }
