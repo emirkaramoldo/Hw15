@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity2">
+
+
+    <FrameLayout
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:background="@color/light_black">
+    </FrameLayout>
+
+    <LinearLayout
+        android:id="@+id/container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/light_blue"
+        >
+
+        <LinearLayout
+            android:id="@+id/policies_layout"
+            android:paddingVertical="6dp"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            >
+
+            <TextView
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:textSize="40sp"
+                android:text="@string/policies"
+                android:textColor="@color/light_black"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                >
+            </TextView>
+            <com.google.android.material.button.MaterialButton
+                style="@style/Policies.Button"
+                android:text="policy"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="10dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Policies.Button"
+                android:text="Product category"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Policies.Button"
+                android:text="Origin country"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                />
+            <com.google.android.material.button.MaterialButton
+                style="@style/Policies.Button"
+                android:text="Brand"
+                android:layout_marginTop="10dp"
+                />
+
+            <TextView
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:textSize="26sp"
+                android:textAlignment="center"
+                android:text="@string/current_policies"
+                android:textColor="@color/light_black"
+                android:layout_marginTop="40dp"
+                android:layout_marginBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:width="200dp"
+                android:textStyle="bold"
+                >
+            </TextView>
+            <Button
+                android:id="@+id/export_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:backgroundTint="@color/red"
+                android:layout_margin="20dp"
+                android:text="Export as CSV"
+                android:textSize="16sp"
+                android:paddingVertical="20dp"
+                android:paddingHorizontal="40dp"
+                android:width="200dp"
+                android:onClick="onOperationClick"
+                >
+            </Button>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
