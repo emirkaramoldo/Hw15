@@ -33,6 +33,8 @@ public class MainActivity extends AppCompatActivity {
         button = findViewById(R.id.next_button);
         findViewById(R.id.next_button).setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, MainActivity2.class);
+            String text = textView.getText().toString();
+            intent.putExtra("policies", text);
             startActivity(intent);
         });
     }
